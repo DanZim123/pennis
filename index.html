@@ -105,7 +105,7 @@
         buy.addEventLister("click", () => {
             document.getElementById("main").style.display = "none";
             document.getElementById("form").style.display = "block";
-            document.getElementById("user_name").value = tg.initDataUnsafe.first_name;
+            document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name;
         });
 
         order.addEventLister("click", () => {
@@ -115,5 +115,6 @@
     </script>
 </body>
 </html>
+
 
 
