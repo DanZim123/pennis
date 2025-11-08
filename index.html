@@ -3,135 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Банк - Финансовая платформа</title>
+    <title>БАНК - Финансовая платформа</title>
     <style>
+        # Сброс стандартных стилей браузера
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            margin: 0;                    # Убирает все внешние отступы
+            padding: 0;                   # Убирает все внутренние отступы
+            box-sizing: border-box;       # Размеры элементов включают padding и border
         }
 
+        # Основные стили страницы
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;  # Шрифт для всей страницы
+            line-height: 1.6;               # Межстрочный интервал
+            background-color: #00FFD0;      # Цвет фона страницы
         }
 
+        # Шапка сайта
         header {
-            background: black;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background: white;              # Белый фон шапки
+            padding: 1rem 2rem;             # Внутренние отступы: 1rem сверху/снизу, 2rem слева/справа
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);  # Тень под шапкой
         }
 
+        # Основная навигация (верхняя строка)
         .main-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
+            display: flex;                  # Flexbox для расположения элементов
+            justify-content: space-between; # Распределение пространства между элементами
+            align-items: center;            # Выравнивание по центру по вертикали
+            margin-bottom: 1rem;           # Отступ снизу
         }
 
+        # Левая и правая части навигации
         .nav-left, .nav-right {
-            display: flex;
-            gap: 2rem;
+            display: flex;                  # Flexbox для кнопок
+            gap: 2rem;                     # Расстояние между кнопками
         }
 
+        # Стили кнопок навигации
         .nav-item {
-            cursor: pointer;
-            padding: 0.5rem 1rem;
-            border: none;
-            background: none;
-            font-size: 14px;
-            transition: background-color 0.3s;
+            cursor: pointer;               # Курсор-указатель при наведении
+            padding: 0.5rem 1rem;          # Внутренние отступы кнопок
+            border: none;                  # Убираем стандартную рамку
+            background: none;              # Прозрачный фон
+            font-size: 14px;               # Размер шрифта
+            transition: background-color 0.3s;  # Плавное изменение фона
         }
 
+        # Эффект при наведении на кнопку
         .nav-item:hover {
-            background-color: #f0f0f0;
-            border-radius: 4px;
+            background-color: #f0f0f0;     # Серый фон при наведении
+            border-radius: 4px;            # Закругленные углы
         }
 
+        # Стили логотипа
         .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #2c3e50;
+            font-size: 24px;               # Крупный шрифт для лого
+            font-weight: bold;             # Жирное начертание
+            color: #2c3e50;                # Темно-синий цвет
         }
 
+        # Разделительная линия
         hr {
-            margin: 1rem 0;
-            border: none;
-            border-top: 1px solid #ddd;
+            margin: 1rem 0;               # Отступы сверху и снизу
+            border: none;                  # Убираем стандартную рамку
+            border-top: 1px solid #ddd;   # Серая линия сверху
         }
 
+        # Вторичная навигация
         .secondary-nav {
-            display: flex;
-            gap: 2rem;
-            margin: 1rem 0;
+            display: flex;                 # Flexbox для кнопок
+            gap: 2rem;                    # Расстояние между кнопками
+            margin: 1rem 0;               # Отступы сверху и снизу
         }
 
+        # Контейнер для вкладок
         .tabs {
-            display: flex;
-            gap: 1rem;
-            margin: 1rem 0;
-            flex-wrap: wrap;
+            display: flex;                 # Flexbox для вкладок
+            gap: 1rem;                    # Расстояние между вкладками
+            margin: 1rem 0;               # Отступы сверху и снизу
+            flex-wrap: wrap;              # Перенос на новую строку при нехватке места
         }
 
+        # Стили отдельных вкладок
         .tab {
-            padding: 0.5rem 1rem;
-            border: 1px solid #ddd;
-            background: white;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: all 0.3s;
+            padding: 0.5rem 1rem;         # Внутренние отступы
+            border: 1px solid #ddd;       # Серая рамка
+            background: white;            # Белый фон
+            cursor: pointer;              # Курсор-указатель
+            border-radius: 4px;           # Закругленные углы
+            transition: all 0.3s;         # Плавные переходы для всех свойств
         }
 
+        # Эффект при наведении на вкладку
         .tab:hover {
-            background: #e9ecef;
+            background: #e9ecef;          # Светло-серый фон при наведении
         }
 
+        # Стили активной вкладки
         .tab.active {
-            background: #007bff;
-            color: white;
-            border-color: #007bff;
+            background: #007bff;          # Синий фон
+            color: white;                 # Белый текст
+            border-color: #007bff;        # Синяя рамка
         }
 
+        # Секция с недавно просмотренными акциями
         .recent-section {
-            background: white;
-            padding: 2rem;
-            margin: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: white;            # Белый фон
+            padding: 2rem;               # Внутренние отступы
+            margin: 2rem;                # Внешние отступы
+            border-radius: 8px;          # Закругленные углы
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);  # Тень вокруг блока
         }
 
+        # Сетка для акций
         .recent-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
+            display: grid;                # CSS Grid для расположения
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));  # Автоподбор колонок
+            gap: 1rem;                   # Расстояние между элементами
+            margin-top: 1rem;            # Отступ сверху
         }
 
+        # Стили элемента акции
         .stock-item {
-            padding: 1rem;
-            border: 1px solid #e9ecef;
-            border-radius: 6px;
-            cursor: pointer;
-            text-align: center;
-            transition: all 0.3s;
+            padding: 1rem;               # Внутренние отступы
+            border: 1px solid #e9ecef;   # Светло-серая рамка
+            border-radius: 6px;          # Закругленные углы
+            cursor: pointer;             # Курсор-указатель
+            text-align: center;          # Выравнивание текста по центру
+            transition: all 0.3s;        # Плавные переходы
         }
 
+        # Эффект при наведении на акцию
         .stock-item:hover {
-            background: #f8f9fa;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background: #f8f9fa;         # Очень светлый серый фон
+            transform: translateY(-2px); # Легкий подъем элемента
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);  # Тень при наведении
         }
 
+        # Стили для жирного текста (выделенные акции)
         .stock-item.bold {
-            font-weight: bold;
-            color: #2c3e50;
+            font-weight: bold;           # Жирное начертание
+            color: #2c3e50;              # Темно-синий цвет
         }
     </style>
 </head>
 <body>
+    <!-- Шапка сайта -->
     <header>
+        <!-- Основная навигация -->
         <div class="main-nav">
+            <!-- Левая часть навигации -->
             <div class="nav-left">
                 <div class="logo">БАНК</div>
                 <button class="nav-item" onclick="handleNavClick('Банк')">Банк</button>
@@ -142,13 +164,16 @@
                 <button class="nav-item" onclick="handleNavClick('Путешествия')">Путешествия</button>
                 <button class="nav-item" onclick="handleNavClick('Должны')">Должны</button>
             </div>
+            <!-- Правая часть навигации -->
             <div class="nav-right">
                 <button class="nav-item" onclick="handleLogin()" style="color: #007bff;">Войти</button>
             </div>
         </div>
         
+        <!-- Первая разделительная линия -->
         <hr>
         
+        <!-- Вторичная навигация -->
         <div class="secondary-nav">
             <button class="nav-item" onclick="handleSectionClick('Обзор')">Обзор</button>
             <button class="nav-item" onclick="handleSectionClick('Каталог')">Каталог</button>
@@ -158,12 +183,15 @@
             <button class="nav-item" onclick="handleSectionClick('Терминал')">Терминал</button>
         </div>
         
+        <!-- Вторая разделительная линия -->
         <hr>
         
+        <!-- Поле поиска -->
         <div style="margin: 1rem 0;">
             <input type="text" placeholder="Название или тикер" style="padding: 0.5rem; width: 300px; border: 1px solid #ddd; border-radius: 4px;">
         </div>
         
+        <!-- Вкладки с фильтрами -->
         <div class="tabs">
             <button class="tab active" onclick="switchTab('Что купить')">Что купить</button>
             <button class="tab" onclick="switchTab('Акции')">Акции</button>
@@ -178,7 +206,9 @@
         </div>
     </header>
 
+    <!-- Основное содержимое страницы -->
     <main>
+        <!-- Секция с недавно просмотренными акциями -->
         <section class="recent-section">
             <h2>Недавно просмотренные</h2>
             <div class="recent-grid">
@@ -194,40 +224,45 @@
     </main>
 
     <script>
+        # Функция обработки клика по навигации
         function handleNavClick(section) {
             alert(`Переход в раздел: ${section}`);
             console.log(`Нажата кнопка: ${section}`);
         }
 
+        # Функция обработки клика по разделам
         function handleSectionClick(section) {
             alert(`Открыт раздел: ${section}`);
             console.log(`Открыт раздел: ${section}`);
         }
 
+        # Функция обработки кнопки входа
         function handleLogin() {
             alert('Открытие формы входа');
             console.log('Нажата кнопка Войти');
         }
 
+        # Функция переключения вкладок
         function switchTab(tabName) {
-            // Убираем активный класс у всех вкладок
+            # Убираем активный класс у всех вкладок
             document.querySelectorAll('.tab').forEach(tab => {
                 tab.classList.remove('active');
             });
             
-            // Добавляем активный класс текущей вкладке
+            # Добавляем активный класс текущей вкладке
             event.target.classList.add('active');
             
             alert(`Переключено на вкладку: ${tabName}`);
             console.log(`Активная вкладка: ${tabName}`);
         }
 
+        # Функция обработки клика по акции
         function handleStockClick(stockName) {
             alert(`Открыта информация по: ${stockName}`);
             console.log(`Выбрана акция: ${stockName}`);
         }
 
-        // Обработка поля поиска
+        # Обработка поля поиска (реакция на Enter)
         document.querySelector('input[type="text"]').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 alert(`Поиск: ${this.value}`);
@@ -237,5 +272,3 @@
     </script>
 </body>
 </html>
-
-
