@@ -1,14 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie-edge">
-    <title>Shop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Банк - Финансовая платформа</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500&display=swap');
-
         * {
             margin: 0;
             padding: 0;
@@ -16,126 +12,227 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 200;
-            color: var(--tg-theme-text-color);
-            background: var(--tg-theme-bg-color);
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
         }
 
-        #main {
-            width: 100%;
-            padding: 20px;
-            text-align: center;
+        header {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        h1 {
-            margin-top: 50px;
-            margin-bottom: 10px;
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
         }
 
-        img {
-            width: 70px;
-            margin: 30px auto;
+        .nav-left, .nav-right {
+            display: flex;
+            gap: 2rem;
         }
 
-        p {
-            width: 350px;
-            margin: 0 auto;
-        }
-
-        button {
-            border: 0;
-            border-radius: 5px;
-            margin-top: 50px;
-            height: 60px;
-            width: 200px;
-            font-size: 20px;
-            font-weight: 500;
+        .nav-item {
             cursor: pointer;
-            transition: all 500ms ease;
-            color: var(--tg-theme-button-color);
-            background: var(--tg-theme-button-text-color);
-        }
-
-        button:hover {
-            background: var(--tg-theme-secondary-bg-color);
-        }
-
-        form {
-            display: none;
-            text-align: center;
-        }
-
-        input {
-            width: 90%;
-            outline: none;
-            margin: 10px 5%;
-            padding: 15px 10px;
+            padding: 0.5rem 1rem;
+            border: none;
+            background: none;
             font-size: 14px;
-            border: 2px solid silver;
-            border-radius: 5px;
+            transition: background-color 0.3s;
         }
 
-        input:focus {
-            border-color: #db5d5d;
+        .nav-item:hover {
+            background-color: #f0f0f0;
+            border-radius: 4px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        hr {
+            margin: 1rem 0;
+            border: none;
+            border-top: 1px solid #ddd;
+        }
+
+        .secondary-nav {
+            display: flex;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .tab:hover {
+            background: #e9ecef;
+        }
+
+        .tab.active {
+            background: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+
+        .recent-section {
+            background: white;
+            padding: 2rem;
+            margin: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .recent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .stock-item {
+            padding: 1rem;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .stock-item:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .stock-item.bold {
+            font-weight: bold;
+            color: #2c3e50;
         }
     </style>
 </head>
 <body>
-    <div id="main">
-        <h1>Онлайн магазин</h1>
+    <header>
+        <div class="main-nav">
+            <div class="nav-left">
+                <div class="logo">БАНК</div>
+                <button class="nav-item" onclick="handleNavClick('Банк')">Банк</button>
+                <button class="nav-item" onclick="handleNavClick('Бизнес')">Бизнес</button>
+                <button class="nav-item" onclick="handleNavClick('Инвестиции')">Инвестиции</button>
+                <button class="nav-item" onclick="handleNavClick('Мобильная связь')">Мобильная связь</button>
+                <button class="nav-item" onclick="handleNavClick('Страхование')">Страхование</button>
+                <button class="nav-item" onclick="handleNavClick('Путешествия')">Путешествия</button>
+                <button class="nav-item" onclick="handleNavClick('Должны')">Должны</button>
+            </div>
+            <div class="nav-right">
+                <button class="nav-item" onclick="handleLogin()" style="color: #007bff;">Войти</button>
+            </div>
+        </div>
+        
+        <hr>
+        
+        <div class="secondary-nav">
+            <button class="nav-item" onclick="handleSectionClick('Обзор')">Обзор</button>
+            <button class="nav-item" onclick="handleSectionClick('Каталог')">Каталог</button>
+            <button class="nav-item" onclick="handleSectionClick('Пульс')">Пульс</button>
+            <button class="nav-item" onclick="handleSectionClick('Аналитика')">Аналитика</button>
+            <button class="nav-item" onclick="handleSectionClick('Академия')">Академия</button>
+            <button class="nav-item" onclick="handleSectionClick('Терминал')">Терминал</button>
+        </div>
+        
+        <hr>
+        
+        <div style="margin: 1rem 0;">
+            <input type="text" placeholder="Название или тикер" style="padding: 0.5rem; width: 300px; border: 1px solid #ddd; border-radius: 4px;">
+        </div>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('Что купить')">Что купить</button>
+            <button class="tab" onclick="switchTab('Акции')">Акции</button>
+            <button class="tab" onclick="switchTab('Валюта')">Валюта</button>
+            <button class="tab" onclick="switchTab('Фонды')">Фонды</button>
+            <button class="tab" onclick="switchTab('Облигации')">Облигации</button>
+            <button class="tab" onclick="switchTab('Фьючерсы')">Фьючерсы</button>
+            <button class="tab" onclick="switchTab('Опционы')">Опционы</button>
+            <button class="tab" onclick="switchTab('Стратегии')">Стратегии</button>
+            <button class="tab" onclick="switchTab('Индексы')">Индексы</button>
+            <button class="tab" onclick="switchTab('Избранное')">Избранное</button>
+        </div>
+    </header>
 
-        <img src="https://cdn-icons-png.flaticon.com/512/3595/3595455.png">
+    <main>
+        <section class="recent-section">
+            <h2>Недавно просмотренные</h2>
+            <div class="recent-grid">
+                <div class="stock-item bold" onclick="handleStockClick('Аэрофлот')">Аэрофлот</div>
+                <div class="stock-item" onclick="handleStockClick('НОВАТЭК')">НОВАТЭК</div>
+                <div class="stock-item bold" onclick="handleStockClick('Сбер Банк')">Сбер Банк</div>
+                <div class="stock-item" onclick="handleStockClick('ПИК')">ПИК</div>
+                <div class="stock-item" onclick="handleStockClick('ПИК')">ПИК</div>
+                <div class="stock-item" onclick="handleStockClick('ПИК')">ПИК</div>
+                <div class="stock-item" onclick="handleStockClick('ЛУКОЙЛ')">ЛУКОЙЛ</div>
+            </div>
+        </section>
+    </main>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ipsum magni, molestias.</p>
-        <button id="buy" type="button">Купить</button>
-    </div>
-    <form id="form">
-        <input type="text" placeholder="#wa" id="user_name">
-        <input type="text" placeholder="Email" id="user_email">
-        <input type="text" placeholder="Tencent" id="user_phone">
-        <div id="error"></div>
-        <button id="order">Оформить</button>
-    </form>
-    <script src="https://telegram.org/js/telegram-web-app.js?59"></script>
     <script>
-        let tg = window.Telegram.WebApp;
-        let buy = document.getElementById("buy");
-        let order = document.getElementById("order");
-        tg.expand();
+        function handleNavClick(section) {
+            alert(`Переход в раздел: ${section}`);
+            console.log(`Нажата кнопка: ${section}`);
+        }
 
-        buy.addEventListener("click", () => {
-            document.getElementById("main").style.display = "none";
-            document.getElementById("form").style.display = "block";
-            document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name;
-        });
+        function handleSectionClick(section) {
+            alert(`Открыт раздел: ${section}`);
+            console.log(`Открыт раздел: ${section}`);
+        }
 
-        order.addEventListener("click", () => {
-            document.getElementById("error").innerText = '';
-            let name = document.getElementById("user_name").value;
-            let email = document.getElementById("user_email").value;
-            let phone = document.getElementById("user_phone").value;
-            if(name.length < 5) {
-                document.getElementById("error").innerText = 'Ошибка в имени';
-                return;
-            }
-            if(email.length < 5) {
-                document.getElementById("error").innerText = 'Ошибка в email';
-                return;
-            }
-            if(phone.length < 5) {
-                document.getElementById("error").innerText = 'Ошибка в номере';
-                return;
-            }
+        function handleLogin() {
+            alert('Открытие формы входа');
+            console.log('Нажата кнопка Войти');
+        }
 
-            let data = {
-                name: name,
-                email: email,
-                phone: phone,
-            }
-            tg.sendData(JSON.stringify(data));
+        function switchTab(tabName) {
+            // Убираем активный класс у всех вкладок
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Добавляем активный класс текущей вкладке
+            event.target.classList.add('active');
+            
+            alert(`Переключено на вкладку: ${tabName}`);
+            console.log(`Активная вкладка: ${tabName}`);
+        }
 
-            tg.close();
+        function handleStockClick(stockName) {
+            alert(`Открыта информация по: ${stockName}`);
+            console.log(`Выбрана акция: ${stockName}`);
+        }
+
+        // Обработка поля поиска
+        document.querySelector('input[type="text"]').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                alert(`Поиск: ${this.value}`);
+                console.log(`Выполнен поиск: ${this.value}`);
+            }
         });
     </script>
 </body>
