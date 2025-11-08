@@ -14,11 +14,11 @@
         body { /* Стили для тела документа */
             font-family: Arial, sans-serif; /* Устанавливает шрифт Arial или без засечек */
             line-height: 1.6; /* Межстрочное расстояние 1.6 от размера шрифта */
-            background-color: #ACFCD9; /* Цвет фона страницы - светло-серый */
+            background-color: #000000; /* Цвет фона страницы - светло-серый */
         }
 
         header { /* Стили для шапки сайта */
-            background: white; /* Белый фон шапки */
+            background: yellow; /* фон шапки */
             padding: 1rem 2rem; /* Внутренние отступы: 1rem сверху/снизу, 2rem слева/справа */
             box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Тень под шапкой с прозрачностью */
         }
@@ -146,9 +146,9 @@
                 <button class="nav-item" onclick="handleLogin()" style="color: #007bff;">Войти</button> <!-- Кнопка входа -->
             </div> <!-- Конец правой части навигации -->
         </div> <!-- Конец основной навигации -->
-        
+
         <hr> <!-- Горизонтальная разделительная линия -->
-        
+
         <div class="secondary-nav"> <!-- Контейнер вторичной навигации -->
             <button class="nav-item" onclick="handleSectionClick('Обзор')">Обзор</button> <!-- Кнопка раздела -->
             <button class="nav-item" onclick="handleSectionClick('Каталог')">Каталог</button> <!-- Кнопка раздела -->
@@ -157,13 +157,13 @@
             <button class="nav-item" onclick="handleSectionClick('Академия')">Академия</button> <!-- Кнопка раздела -->
             <button class="nav-item" onclick="handleSectionClick('Терминал')">Терминал</button> <!-- Кнопка раздела -->
         </div> <!-- Конец вторичной навигации -->
-        
+
         <hr> <!-- Горизонтальная разделительная линия -->
-        
+
         <div style="margin: 1rem 0;"> <!-- Контейнер для поиска с inline стилями -->
             <input type="text" placeholder="Название или тикер" style="padding: 0.5rem; width: 300px; border: 1px solid #ddd; border-radius: 4px;"> <!-- Поле ввода поиска -->
         </div> <!-- Конец контейнера поиска -->
-        
+
         <div class="tabs"> <!-- Контейнер вкладок -->
             <button class="tab active" onclick="switchTab('Что купить')">Что купить</button> <!-- Активная вкладка -->
             <button class="tab" onclick="switchTab('Акции')">Акции</button> <!-- Вкладка -->
@@ -214,10 +214,10 @@
             document.querySelectorAll('.tab').forEach(tab => { // Выбор всех элементов с классом tab
                 tab.classList.remove('active'); // Удаление класса active
             });
-            
+
             // Добавляем активный класс текущей вкладке
             event.target.classList.add('active'); // Добавление класса active к нажатой вкладке
-            
+
             alert(`Переключено на вкладку: ${tabName}`); // Показ alert с названием вкладки
             console.log(`Активная вкладка: ${tabName}`); // Логирование в консоль
         }
