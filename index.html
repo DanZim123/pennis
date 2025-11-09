@@ -1,241 +1,143 @@
-<!DOCTYPE html> <!-- Объявление типа документа HTML5 -->
-<html lang="ru"> <!-- Начало HTML документа с указанием языка - русский -->
-<head> <!-- Секция метаданных и заголовка страницы -->
-    <meta charset="UTF-8"> <!-- Кодировка символов - UTF-8 для поддержки русского языка -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Настройка адаптивности для мобильных устройств -->
-    <title>Банк - Финансовая платформа</title> <!-- Заголовок страницы во вкладке браузера -->
-    <style> <!-- Начало секции CSS стилей -->
-        * { /* Универсальный селектор для всех элементов */
-            margin: 0; /* Убирает внешние отступы у всех элементов */
-            padding: 0; /* Убирает внутренние отступы у всех элементов */
-            box-sizing: border-box; /* Меняет модель расчета размеров элементов */
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>Shop</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        body { /* Стили для тела документа */
-            font-family: Arial, sans-serif; /* Устанавливает шрифт Arial или без засечек */
-            line-height: 1.6; /* Межстрочное расстояние 1.6 от размера шрифта */
-            background-color: #000000; /* Цвет фона страницы - светло-серый */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 200;
+            color: var(--tg-theme-text-color);
+            background: var(--tg-theme-bg-color);
         }
 
-        header { /* Стили для шапки сайта */
-            background: yellow; /* фон шапки */
-            padding: 1rem 2rem; /* Внутренние отступы: 1rem сверху/снизу, 2rem слева/справа */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Тень под шапкой с прозрачностью */
+        #main {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
         }
 
-        .main-nav { /* Стили для основной навигации */
-            display: flex; /* Включает flexbox для расположения элементов */
-            justify-content: space-between; /* Распределяет пространство между элементами */
-            align-items: center; /* Выравнивает элементы по центру по вертикали */
-            margin-bottom: 1rem; /* Отступ снизу 1rem */
+        h1 {
+            margin-top: 50px;
+            margin-bottom: 10px;
         }
 
-        .nav-left, .nav-right { /* Стили для левой и правой частей навигации */
-            display: flex; /* Включает flexbox для кнопок */
-            gap: 2rem; /* Расстояние между кнопками 2rem */
+        img {
+            width: 70px;
+            margin: 30px auto;
         }
 
-        .nav-item { /* Стили для кнопок навигации */
-            cursor: pointer; /* Меняет курсор на указатель при наведении */
-            padding: 0.5rem 1rem; /* Внутренние отступы кнопок */
-            border: none; /* Убирает стандартную рамку кнопки */
-            background: none; /* Прозрачный фон кнопки */
-            font-size: 14px; /* Размер шрифта 14px */
-            transition: background-color 0.3s; /* Плавное изменение фона за 0.3 секунды */
+        p {
+            width: 350px;
+            margin: 0 auto;
         }
 
-        .nav-item:hover { /* Стили при наведении на кнопку */
-            background-color: #f0f0f0; /* Серый фон при наведении */
-            border-radius: 4px; /* Закругленные углы при наведении */
+        button {
+            border: 0;
+            border-radius: 5px;
+            margin-top: 50px;
+            height: 60px;
+            width: 200px;
+            font-size: 20px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 500ms ease;
+            color: var(--tg-theme-button-color);
+            background: var(--tg-theme-button-text-color);
         }
 
-        .logo { /* Стили для логотипа */
-            font-size: 24px; /* Крупный размер шрифта для лого */
-            font-weight: bold; /* Жирное начертание текста */
-            color: #2c3e50; /* Темно-синий цвет текста */
+        button:hover {
+            background: var(--tg-theme-secondary-bg-color);
         }
 
-        hr { /* Стили для горизонтальной линии */
-            margin: 1rem 0; /* Отступы сверху и снизу 1rem */
-            border: none; /* Убирает стандартную рамку */
-            border-top: 1px solid #ddd; /* Создает серую линию сверху */
+        form {
+            display: none;
+            text-align: center;
         }
 
-        .secondary-nav { /* Стили для вторичной навигации */
-            display: flex; /* Включает flexbox для кнопок */
-            gap: 2rem; /* Расстояние между кнопками 2rem */
-            margin: 1rem 0; /* Отступы сверху и снизу 1rem */
+        input {
+            width: 90%;
+            outline: none;
+            margin: 10px 5%;
+            padding: 15px 10px;
+            font-size: 14px;
+            border: 2px solid silver;
+            border-radius: 5px;
         }
 
-        .tabs { /* Стили для контейнера вкладок */
-            display: flex; /* Включает flexbox для вкладок */
-            gap: 1rem; /* Расстояние между вкладками 1rem */
-            margin: 1rem 0; /* Отступы сверху и снизу 1rem */
-            flex-wrap: wrap; /* Разрешает перенос вкладок на новую строку */
+        input:focus {
+            border-color: #db5d5d;
         }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h1>Онлайн магазин</h1>
 
-        .tab { /* Стили для отдельных вкладок */
-            padding: 0.5rem 1rem; /* Внутренние отступы вкладки */
-            border: 1px solid #ddd; /* Серая рамка толщиной 1px */
-            background: white; /* Белый фон вкладки */
-            cursor: pointer; /* Курсор-указатель при наведении */
-            border-radius: 4px; /* Закругленные углы вкладки */
-            transition: all 0.3s; /* Плавные переходы для всех свойств */
-        }
+        <img src="51stunning-dolomites-mountains-italy.jpg">
 
-        .tab:hover { /* Стили при наведении на вкладку */
-            background: #e9ecef; /* Светло-серый фон при наведении */
-        }
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ipsum magni, molestias.</p>
+        <button id="buy" type="button">Купить</button>
+    </div>
+    <form id="form">
+        <input type="text" placeholder="#wa" id="user_name">
+        <input type="text" placeholder="Email" id="user_email">
+        <input type="text" placeholder="Tencent" id="user_phone">
+        <div id="error"></div>
+        <button id="order">Оформить</button>
+    </form>
+    <script src="https://telegram.org/js/telegram-web-app.js?59"></script>
+    <script>
+        let tg = window.Telegram.WebApp;
+        let buy = document.getElementById("buy");
+        let order = document.getElementById("order");
+        tg.expand();
 
-        .tab.active { /* Стили для активной вкладки */
-            background: #007bff; /* Синий фон активной вкладки */
-            color: white; /* Белый текст активной вкладки */
-            border-color: #007bff; /* Синяя рамка активной вкладки */
-        }
-
-        .recent-section { /* Стили для секции с акциями */
-            background: white; /* Белый фон секции */
-            padding: 2rem; /* Внутренние отступы 2rem со всех сторон */
-            margin: 2rem; /* Внешние отступы 2rem со всех сторон */
-            border-radius: 8px; /* Закругленные углы секции */
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Тень вокруг блока */
-        }
-
-        .recent-grid { /* Стили для сетки акций */
-            display: grid; /* Включает CSS Grid для расположения */
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Автоматическое создание колонок */
-            gap: 1rem; /* Расстояние между элементами сетки */
-            margin-top: 1rem; /* Отступ сверху 1rem */
-        }
-
-        .stock-item { /* Стили для элемента акции */
-            padding: 1rem; /* Внутренние отступы 1rem */
-            border: 1px solid #e9ecef; /* Светло-серая рамка толщиной 1px */
-            border-radius: 6px; /* Закругленные углы элемента */
-            cursor: pointer; /* Курсор-указатель при наведении */
-            text-align: center; /* Выравнивание текста по центру */
-            transition: all 0.3s; /* Плавные переходы для всех свойств */
-        }
-
-        .stock-item:hover { /* Стили при наведении на акцию */
-            background: #f8f9fa; /* Очень светлый серый фон при наведении */
-            transform: translateY(-2px); /* Поднимает элемент на 2px вверх */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Тень при наведении */
-        }
-
-        .stock-item.bold { /* Стили для выделенных акций */
-            font-weight: bold; /* Жирное начертание текста */
-            color: #2c3e50; /* Темно-синий цвет текста */
-        }
-    </style> <!-- Конец секции CSS стилей -->
-</head> <!-- Конец секции заголовка -->
-<body> <!-- Начало тела документа -->
-    <header> <!-- Начало шапки сайта -->
-        <div class="main-nav"> <!-- Контейнер основной навигации -->
-            <div class="nav-left"> <!-- Левая часть навигации -->
-                <div class="logo">БАНК</div> <!-- Логотип -->
-                <button class="nav-item" onclick="handleNavClick('Банк')">Банк</button> <!-- Кнопка навигации -->
-                <button class="nav-item" onclick="handleNavClick('Бизнес')">Бизнес</button> <!-- Кнопка навигации -->
-                <button class="nav-item" onclick="handleNavClick('Инвестиции')">Инвестиции</button> <!-- Кнопка навигации -->
-                <button class="nav-item" onclick="handleNavClick('Мобильная связь')">Мобильная связь</button> <!-- Кнопка навигации -->
-                <button class="nav-item" onclick="handleNavClick('Страхование')">Страхование</button> <!-- Кнопка навигации -->
-                <button class="nav-item" onclick="handleNavClick('Путешествия')">Путешествия</button> <!-- Кнопка навигации -->
-                <button class="nav-item" onclick="handleNavClick('Должны')">Должны</button> <!-- Кнопка навигации -->
-            </div> <!-- Конец левой части навигации -->
-            <div class="nav-right"> <!-- Правая часть навигации -->
-                <button class="nav-item" onclick="handleLogin()" style="color: #007bff;">Войти</button> <!-- Кнопка входа -->
-            </div> <!-- Конец правой части навигации -->
-        </div> <!-- Конец основной навигации -->
-
-        <hr> <!-- Горизонтальная разделительная линия -->
-
-        <div class="secondary-nav"> <!-- Контейнер вторичной навигации -->
-            <button class="nav-item" onclick="handleSectionClick('Обзор')">Обзор</button> <!-- Кнопка раздела -->
-            <button class="nav-item" onclick="handleSectionClick('Каталог')">Каталог</button> <!-- Кнопка раздела -->
-            <button class="nav-item" onclick="handleSectionClick('Пульс')">Пульс</button> <!-- Кнопка раздела -->
-            <button class="nav-item" onclick="handleSectionClick('Аналитика')">Аналитика</button> <!-- Кнопка раздела -->
-            <button class="nav-item" onclick="handleSectionClick('Академия')">Академия</button> <!-- Кнопка раздела -->
-            <button class="nav-item" onclick="handleSectionClick('Терминал')">Терминал</button> <!-- Кнопка раздела -->
-        </div> <!-- Конец вторичной навигации -->
-
-        <hr> <!-- Горизонтальная разделительная линия -->
-
-        <div style="margin: 1rem 0;"> <!-- Контейнер для поиска с inline стилями -->
-            <input type="text" placeholder="Название или тикер" style="padding: 0.5rem; width: 300px; border: 1px solid #ddd; border-radius: 4px;"> <!-- Поле ввода поиска -->
-        </div> <!-- Конец контейнера поиска -->
-
-        <div class="tabs"> <!-- Контейнер вкладок -->
-            <button class="tab active" onclick="switchTab('Что купить')">Что купить</button> <!-- Активная вкладка -->
-            <button class="tab" onclick="switchTab('Акции')">Акции</button> <!-- Вкладка -->
-            <button class="tab" onclick="switchTab('Валюта')">Валюта</button> <!-- Вкладка -->
-            <button class="tab" onclick="switchTab('Фонды')">Фонды</button> <!-- Вкладка -->
-            <button class="tab" onclick="switchTab('Облигации')">Облигации</button> <!-- Вкладка -->
-            <button class="tab" onclick="switchTab('Фьючерсы')">Фьючерсы</button> <!-- Вкладка -->
-            <button class="tab" onclick="switchTab('Опционы')">Опционы</button> <!-- Вкладка -->
-            <button class="tab" onclick="switchTab('Стратегии')">Стратегии</button> <!-- Вкладка -->
-            <button class="tab" onclick="switchTab('Индексы')">Индексы</button> <!-- Вкладка -->
-            <button class="tab" onclick="switchTab('Избранное')">Избранное</button> <!-- Вкладка -->
-        </div> <!-- Конец контейнера вкладок -->
-    </header> <!-- Конец шапки сайта -->
-
-    <main> <!-- Начало основного содержимого страницы -->
-        <section class="recent-section"> <!-- Секция недавно просмотренных -->
-            <h2>Недавно просмотренные</h2> <!-- Заголовок секции -->
-            <div class="recent-grid"> <!-- Сетка для акций -->
-                <div class="stock-item bold" onclick="handleStockClick('Аэрофлот')">Аэрофлот</div> <!-- Элемент акции -->
-                <div class="stock-item" onclick="handleStockClick('НОВАТЭК')">НОВАТЭК</div> <!-- Элемент акции -->
-                <div class="stock-item bold" onclick="handleStockClick('Сбер Банк')">Сбер Банк</div> <!-- Элемент акции -->
-                <div class="stock-item" onclick="handleStockClick('ПИК')">ПИК</div> <!-- Элемент акции -->
-                <div class="stock-item" onclick="handleStockClick('ПИК')">ПИК</div> <!-- Элемент акции -->
-                <div class="stock-item" onclick="handleStockClick('ПИК')">ПИК</div> <!-- Элемент акции -->
-                <div class="stock-item" onclick="handleStockClick('ЛУКОЙЛ')">ЛУКОЙЛ</div> <!-- Элемент акции -->
-            </div> <!-- Конец сетки акций -->
-        </section> <!-- Конец секции недавно просмотренных -->
-    </main> <!-- Конец основного содержимого -->
-
-    <script> <!-- Начало секции JavaScript -->
-        function handleNavClick(section) { // Функция обработки клика по навигации
-            alert(`Переход в раздел: ${section}`); // Показ alert с названием раздела
-            console.log(`Нажата кнопка: ${section}`); // Логирование в консоль
-        }
-
-        function handleSectionClick(section) { // Функция обработки клика по разделам
-            alert(`Открыт раздел: ${section}`); // Показ alert с названием раздела
-            console.log(`Открыт раздел: ${section}`); // Логирование в консоль
-        }
-
-        function handleLogin() { // Функция обработки кнопки входа
-            alert('Открытие формы входа'); // Показ alert о форме входа
-            console.log('Нажата кнопка Войти'); // Логирование в консоль
-        }
-
-        function switchTab(tabName) { // Функция переключения вкладок
-            // Убираем активный класс у всех вкладок
-            document.querySelectorAll('.tab').forEach(tab => { // Выбор всех элементов с классом tab
-                tab.classList.remove('active'); // Удаление класса active
-            });
-
-            // Добавляем активный класс текущей вкладке
-            event.target.classList.add('active'); // Добавление класса active к нажатой вкладке
-
-            alert(`Переключено на вкладку: ${tabName}`); // Показ alert с названием вкладки
-            console.log(`Активная вкладка: ${tabName}`); // Логирование в консоль
-        }
-
-        function handleStockClick(stockName) { // Функция обработки клика по акции
-            alert(`Открыта информация по: ${stockName}`); // Показ alert с названием акции
-            console.log(`Выбрана акция: ${stockName}`); // Логирование в консоль
-        }
-
-        // Обработка поля поиска
-        document.querySelector('input[type="text"]').addEventListener('keypress', function(e) { // Обработчик события нажатия клавиши
-            if (e.key === 'Enter') { // Проверка нажатия клавиши Enter
-                alert(`Поиск: ${this.value}`); // Показ alert с поисковым запросом
-                console.log(`Выполнен поиск: ${this.value}`); // Логирование в консоль
-            }
+        buy.addEventListener("click", () => {
+            document.getElementById("main").style.display = "none";
+            document.getElementById("form").style.display = "block";
+            document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name;
         });
-    </script> <!-- Конец секции JavaScript -->
-</body> <!-- Конец тела документа -->
-</html> <!-- Конец HTML документа -->
 
+        order.addEventListener("click", () => {
+            document.getElementById("error").innerText = '';
+            let name = document.getElementById("user_name").value;
+            let email = document.getElementById("user_email").value;
+            let phone = document.getElementById("user_phone").value;
+            if(name.length < 5) {
+                document.getElementById("error").innerText = 'Ошибка в имени';
+                return;
+            }
+            if(email.length < 5) {
+                document.getElementById("error").innerText = 'Ошибка в email';
+                return;
+            }
+            if(phone.length < 5) {
+                document.getElementById("error").innerText = 'Ошибка в номере';
+                return;
+            }
+
+            let data = {
+                name: name,
+                email: email,
+                phone: phone,
+            }
+            tg.sendData(JSON.stringify(data));
+
+            tg.close();
+        });
+    </script>
+</body>
+</html>
 
