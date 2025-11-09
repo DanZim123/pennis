@@ -84,10 +84,33 @@
 <body>
     <div id="main">
         <h1>Онлайн магазин</h1>
+        <style>
+        .fullscreen-image {
+            display: block;
+            width: 100vw;           /* 100% ширины окна */
+            height: 100vh;          /* 100% высоты окна */
+            object-fit: cover;      /* Заполнение без искажений */
+        }
+        
+        #main {
+            margin: 0;
+            padding: 0;
+        }
+        
+        h1 {
+            position: absolute;     /* Текст поверх картинки */
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            z-index: 1;
+        }
+    </style>
         <img src="https://moya-planeta.ru/upload/images/xl/85/ec/85ec639804ea05eb0d5bf4e6793c540e5951d508.jpg" 
              class="fullscreen-image">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ipsum magni, molestias.</p>
-        <button id="buy" type="button">Купить</button>
+        <button id="buy" type="button">Зарегестророваться</button>
     </div>
     
 <form id="form">
@@ -140,5 +163,6 @@
     </script>
 </body>
 </html>
+
 
 
